@@ -1,0 +1,120 @@
+.cookieBanner {
+    max-height: 100vh;
+    overflow: auto;
+    &-header { 
+        padding: 0 2.4rem 2.4rem;
+        .close-button {
+            margin: 1.2rem 0 1rem;
+            &-icon {
+                font-size: 1.8rem;
+                color: #666;
+                cursor: pointer;
+                width: 1.8rem;
+                height: 1.8rem;
+            }
+        }
+        .title {
+            font-size: 2.4rem;
+            font-weight: 550;
+            margin-bottom: 2rem;
+        }
+        .description {
+            font-size: 1.4rem;
+            font-weight: 500;
+            .privacyPolicy {
+                text-decoration: underline;
+                font-weight: 600;
+                cursor: pointer;
+                color: #000;
+            }
+        }
+        &-actions {
+            width: 100%;
+            margin-top: 3rem;
+            .left {
+                display: flex;
+                align-items: center;
+                .acceptButton {
+                   font-size: 1.4rem; 
+                   margin-right: 2rem;
+                   padding: .8rem 2rem;
+                   width: 12.7rem;
+                }
+                .saveButton {
+                    font-size: 1.4rem;
+                    padding: .8rem 2rem;
+                    font-weight: 500;
+                    border: 1px solid #ddd;
+                    width: 12.7rem;
+                }
+            }
+            .right {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                p {
+                    display: flex;
+                    align-items: center;
+                    font-size: 1.4rem;
+                    font-weight: 500;
+                    margin-bottom: 0;
+                    cursor: pointer;
+                }
+            }
+        }  
+    }
+    &-body {
+        -webkit-box-shadow: inset 0px 8px 8px 0px rgba(224,221,224,1);
+        -moz-box-shadow: inset 0px 8px 8px 0px rgba(224,221,224,1);
+        box-shadow: inset 0px 8px 8px 0px rgba(224,221,224,1);
+        padding: 2.4rem;
+        background-color: #f3f3f3;
+        .expansionPanel {
+            margin-bottom: 2rem;
+            .panelTitle {
+                font-weight: 600;
+                font-size: 1.4rem;
+            }
+            .panelBody {
+                font-weight: 500;
+                .pluginList {
+                    &-table {
+                        th {
+                            font-size: 1.4rem;
+                            font-weight: 600;
+                        }
+                        td {
+                            font-size: 1.4rem;
+                            font-weight: 500;
+                        }
+                    }   
+                }
+            }
+        }
+    }
+    td.externalLink {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    .btn {
+        box-shadow: none;
+        outline: none;
+    }
+    .mat-raised-button {
+        line-height: 2rem;
+    }
+}
+::ng-deep {
+    .mat-dialog-container {
+        padding: 0;
+    }
+    .mat-expansion-panel-header-title {
+        justify-content: space-between;
+    }
+    .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+        background-color: #198754;
+    }
+    .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+        background-color: #19875447;
+    }
+}

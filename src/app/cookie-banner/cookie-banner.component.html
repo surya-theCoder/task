@@ -1,0 +1,69 @@
+<div class="cookieBanner">
+    <div class="cookieBanner-header">
+        <p class="text-right close-button"><mat-icon class="close-button-icon" mat-dialog-close>clear</mat-icon></p>
+        <p class="title">Can we store cookies?</p>
+        <div class="text-muted description">
+            <p class="mb-6">
+                We and our partners use technologies, such as cookies, and process personal data,
+                such as IP addresses and cookie identifiers, to personalize ads and content based on your interests,
+                measure the performance of ads and content, and derive insights about the audiences who saw ads and
+                content.
+            </p>
+            <p class="mb-6">
+                Click below to consent to the use of this technology and the processing of your personal data for these
+                purposes.
+                You can change your mind and change your consent choices at any time by returning to this site.
+            </p>
+            <p class="mb-6">
+                You can familarize with our <span class="privacyPolicy">Privacy Policy</span>
+            </p>
+        </div>
+        <div class="row cookieBanner-header-actions">
+            <div class="col col-md-8 left">
+                <button class="btn btn-success acceptButton" mat-raised-button>Accept All</button>
+                <button class="btn saveButton text-muted" mat-raised-button>Save Settings</button>
+            </div>
+            <div class="col col-md-4 text-right right">
+                <p class="text-muted" (click)="showAccordions = !showAccordions">Customize <mat-icon>{{ showAccordions ? 'arrow_drop_up' : 'arrow_drop_down' }}</mat-icon></p>
+            </div>
+        </div>
+    </div>
+    <div class="cookieBanner-body" *ngIf="showAccordions">
+        <mat-accordion>
+            <mat-expansion-panel class="expansionPanel" (opened)="accordian['isOpen'] = true" (closed)="accordian['isOpen'] = false" hideToggle *ngFor="let accordian of accordians">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-slide-toggle><span class="panelTitle">{{ accordian['CategoyHeading'] }}</span></mat-slide-toggle>
+                        <mat-icon>{{ accordian['isOpen'] ? 'arrow_drop_up' : 'arrow_drop_down' }}</mat-icon>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="panelBody">
+                    <p class="text-muted">
+                        {{ accordian['CategoyText'] }}
+                    </p>
+                    <ng-container *ngIf="accordian['PluginList'] && accordian['PluginList'].length">
+                        <div class="pluginList">
+                            <table class="table table-responsive table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th>Plugins</th>
+                                        <th>Blocks/Enable</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let plugin of accordian['PluginList']">
+                                        <td class="text-muted">{{ plugin['ComplianceType'] }}</td>
+                                        <td><mat-slide-toggle></mat-slide-toggle></td>
+                                        <td class="externalLink">Go to site</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </ng-container>
+                    
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</div>
